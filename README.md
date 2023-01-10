@@ -7,3 +7,7 @@ An App Password is a 16-digit passcode that gives a less secure app or device pe
 I use visual studio code but you can use another environment it is optional.
 
 I utilized an excessive amount of time.sleep() functions, which can be reorganized according to your preferences. Additionally, I am locating the HTML elements through their id, class, or href. However, you may need to alter these elements to fit your requirements. To understand the code better you must have basic HTML CSS and programmability knowledge. I hope you find it helpful.
+
+
+![alt text](https://github.com/kahenozturk/US-Visa-Availability-Check/blob/main/Screenshot%20from%202023-01-10%2021-15-02.png)
+

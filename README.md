@@ -11,3 +11,6 @@ I utilized an excessive amount of time.sleep() functions, which can be reorganiz
 
 ![alt text](https://github.com/kahenozturk/US-Visa-Availability-Check/blob/main/Screenshot%20from%202023-01-10%2021-15-02.png)
 
+![alt text](https://github.com/kahenozturk/US-Visa-Availability-Check/blob/main/emailSS.jpeg)
+
+

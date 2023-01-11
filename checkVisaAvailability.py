@@ -51,11 +51,12 @@ while True:
     location_select.click()
     time.sleep(1)
 
+    element_available = driver.find_element(By.ID,"consulate_date_time")
+    display_style_istanbul = element_available.value_of_css_property("display")
 
-    element = driver.find_element(By.ID,"consulate_date_time")
-    display_style = element.value_of_css_property("display")
-        # find the element on the page and check for css property
-    if display_style == "block":
+
+    # check if the element is present on the page
+    if display_style_istanbul == "block":
         # There is availability in Istanbul, so send an email
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -66,10 +67,26 @@ while True:
         server.sendmail('sender@mail.com', 'receiver@mail.com', 'There is availability in Istanbul, hurry up!')
         server.quit()
     else:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login('sender@mail.com', 'sender.mail.password')
-        server.sendmail('sender@mail.com', 'receiver@mail.com', 'No availability in Istanbul!')
-        server.quit()
+        location_select = driver.find_element(By.ID,"appointments_consulate_appointment_facility_id")
+        location_select.click()
+        location_option_ankara = driver.find_element(By.XPATH,"//option[contains(text(), 'Ankara')]")
+        location_option_ankara.click()
+        element_available_ankara = driver.find_element(By.ID,"consulate_date_time")
+        display_style_ankara = element_available_ankara.value_of_css_property("display")
+        if display_style_ankara == "block":
+            # There is availability in Istanbul, so send an email
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+       	    server.starttls()
+            # an email account to send emails, you should use App Pasword otherwise it won't work
+            server.login('sender@mail.com', 'senden.mail.password')
+            # sender: example@example.com
+            # receiver: the email account which you want to receive emails on
+            server.sendmail('sender@mail.com', 'receiver@mail.com', 'There is availability in Ankara, hurry up!')
+            server.quit()
+        else:             
+            print("There is no availability")
+            time.sleep(10)
+            driver.quit()
+        
     # time.sleep function makes while loop wait for 30 mins
     time.sleep(30 * 60)

@@ -70,7 +70,10 @@ while True:
         location_select = driver.find_element(By.ID,"appointments_consulate_appointment_facility_id")
         location_select.click()
         location_option_ankara = driver.find_element(By.XPATH,"//option[contains(text(), 'Ankara')]")
+        time.sleep(1)
         location_option_ankara.click()
+        location_select.click()
+        time.sleep(2)
         element_available_ankara = driver.find_element(By.ID,"consulate_date_time")
         display_style_ankara = element_available_ankara.value_of_css_property("display")
         if display_style_ankara == "block":

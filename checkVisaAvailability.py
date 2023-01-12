@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 
 while True:    
     driver = webdriver.Chrome()
+    driver.minimize_window()
     time.sleep(2)
     driver.get('https://ais.usvisa-info.com/en-tr/niv/users/sign_in')
     time.sleep(2)
